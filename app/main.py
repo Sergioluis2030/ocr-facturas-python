@@ -89,7 +89,7 @@ async def procesar_factura(
             print(f"[PASO 2] Procesando '{foto.filename}' con Gemini (Límite: 10s)...")
             datos_gemini = await asyncio.wait_for(
                 asyncio.to_thread(extract_with_gemini, image_bytes, foto.content_type),
-                timeout=10.0
+                timeout=5
             )
             elapsed_ms = int((time.time() - start_time) * 1000)
             return {
